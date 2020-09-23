@@ -1,1 +1,1 @@
-export { useMyHook } from './useMyHook';
+export { withSuspense } from './withSuspense';
