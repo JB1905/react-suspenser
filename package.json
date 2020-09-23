@@ -1,11 +1,11 @@
 {
-  "name": "react-hooks-npm",
+  "name": "react-suspenser",
   "version": "0.0.0",
-  "description": "This is a React hooks library package starter",
+  "description": "",
   "author": "Jakub Biesiada",
   "license": "MIT",
-  "main": "lib/react-hooks-npm.cjs.js",
-  "module": "lib/react-hooks-npm.esm.js",
+  "main": "lib/react-suspenser.cjs.js",
+  "module": "lib/react-suspenser.esm.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "prepack": "npm run clean && npm run prettier && npm run lint && npm run build",
@@ -21,16 +21,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/the-mes/react-hooks-npm.git"
+    "url": "https://github.com/JB1905/react-suspenser.git"
   },
   "keywords": [
     "react",
     "hooks"
   ],
   "bugs": {
-    "url": "https://github.com/the-mes/react-hooks-npm/issues"
+    "url": "https://github.com/JB1905/react-suspenser/issues"
   },
-  "homepage": "https://github.com/the-mes/react-hooks-npm#readme",
+  "homepage": "https://github.com/JB1905/react-suspenser#readme",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@testing-library/react": "^11.0.4",

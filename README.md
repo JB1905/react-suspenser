@@ -1,11 +1,11 @@
-# [react-hooks-npm](https://github.com/the-mes/react-hooks-npm)
+# [react-suspenser](https://github.com/JB1905/react-suspenser)
 
-[![NPM version](http://img.shields.io/npm/v/react-hooks-npm?style=flat-square)](https://www.npmjs.com/package/react-hooks-npm)
-[![NPM downloads](http://img.shields.io/npm/dm/react-hooks-npm?style=flat-square)](https://www.npmjs.com/package/react-hooks-npm)
-[![NPM license](https://img.shields.io/npm/l/react-hooks-npm?style=flat-square)](https://www.npmjs.com/package/react-hooks-npm)
-[![Codecov](https://img.shields.io/codecov/c/github/the-mes/react-hooks-npm?style=flat-square)](https://codecov.io/gh/the-mes/react-hooks-npm)
-[![Travis](https://img.shields.io/travis/the-mes/react-hooks-npm/master?style=flat-square)](https://travis-ci.org/the-mes/react-hooks-npm)
-[![Bundle size](https://img.shields.io/bundlephobia/min/react-hooks-npm?style=flat-square)](https://bundlephobia.com/result?p=react-hooks-npm)
+[![NPM version](http://img.shields.io/npm/v/react-suspenser?style=flat-square)](https://www.npmjs.com/package/react-suspenser)
+[![NPM downloads](http://img.shields.io/npm/dm/react-suspenser?style=flat-square)](https://www.npmjs.com/package/react-suspenser)
+[![NPM license](https://img.shields.io/npm/l/react-suspenser?style=flat-square)](https://www.npmjs.com/package/react-suspenser)
+[![Codecov](https://img.shields.io/codecov/c/github/JB1905/react-suspenser?style=flat-square)](https://codecov.io/gh/JB1905/react-suspenser)
+[![Travis](https://img.shields.io/travis/JB1905/react-suspenser/master?style=flat-square)](https://travis-ci.org/JB1905/react-suspenser)
+[![Bundle size](https://img.shields.io/bundlephobia/min/react-suspenser?style=flat-square)](https://bundlephobia.com/result?p=react-suspenser)
 
 ## About
 
@@ -26,21 +26,21 @@ Short description about library
 First, install the library in your project by npm:
 
 ```sh
-$ npm install react-hooks-npm
+$ npm install react-suspenser
 ```
 
 Or Yarn:
 
 ```sh
-$ yarn add react-hooks-npm
+$ yarn add react-suspenser
 ```
 
 ## Getting Started
 
-**• Import hook in React application file:**
+<!-- **• Import hook in React application file:** -->
 
 ```js
-import { useMyHook } from 'react-hooks-npm';
+import {} from 'react-suspenser';
 ```
 
 #### Returned Values
