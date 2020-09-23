@@ -1,0 +1,1 @@
+export { useMyHook } from './useMyHook';
