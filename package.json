@@ -1,7 +1,7 @@
 {
   "name": "react-suspenser",
   "version": "0.0.0",
-  "description": "",
+  "description": "Easier management of the lazy loading process",
   "author": "Jakub Biesiada",
   "license": "MIT",
   "main": "lib/react-suspenser.cjs.js",
@@ -24,7 +24,13 @@
     "url": "https://github.com/JB1905/react-suspenser.git"
   },
   "keywords": [
-    "react"
+    "react",
+    "lazy",
+    "loading",
+    "suspense",
+    "dynamic",
+    "import",
+    "modules"
   ],
   "bugs": {
     "url": "https://github.com/JB1905/react-suspenser/issues"

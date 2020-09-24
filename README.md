@@ -9,7 +9,7 @@
 
 ## About
 
-Short description about library
+Easier management of the lazy loading process
 
 ### Demo
 
