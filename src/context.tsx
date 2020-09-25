@@ -8,10 +8,8 @@ interface Props {
   readonly fallback: Fallback;
 }
 
-export const SuspenseProvider: React.FC<Props> = ({ children, fallback }) => {
-  return (
-    <SuspenseContext.Provider value={fallback}>
-      {children}
-    </SuspenseContext.Provider>
-  );
-};
+export const SuspenseProvider: React.FC<Props> = ({ children, fallback }) => (
+  <SuspenseContext.Provider value={fallback}>
+    {children}
+  </SuspenseContext.Provider>
+);
