@@ -1,9 +1,11 @@
 import React from 'react';
 
-export const SuspenseContext = React.createContext<any>({});
+import type { Fallback } from './types/Fallback';
+
+export const SuspenseContext = React.createContext<Fallback>({});
 
 interface Props {
-  readonly fallback: any;
+  readonly fallback: Fallback;
 }
 
 export const SuspenseProvider: React.FC<Props> = ({ children, fallback }) => {

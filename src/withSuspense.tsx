@@ -2,11 +2,16 @@ import React from 'react';
 
 import { SuspenseContext } from './context';
 
-export function withSuspense<T>(WrappedComponent: React.ComponentType<T>) {
+import type { Fallback } from './types/Fallback';
+
+export function withSuspense<T>(
+  WrappedComponent: React.ComponentType<T>,
+  fallback?: Fallback
+) {
   return (props: T) => (
     <SuspenseContext.Consumer>
-      {(fallback) => (
-        <React.Suspense fallback={fallback}>
+      {(globalFallback) => (
+        <React.Suspense fallback={fallback ?? globalFallback}>
           <WrappedComponent {...props} />
         </React.Suspense>
       )}
