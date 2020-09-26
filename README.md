@@ -33,9 +33,9 @@ $ yarn add react-suspenser
 import { SuspenseProvider, withSuspense } from 'react-suspenser';
 ```
 
-#### Example
+### With Context configuration
 
-With context provider and HOC:
+**• Set SuspenseProvider (if you want to use the same fallback for all lazy components wrapped in withSuspense HOC):**
 
 ```js
 // index.js
@@ -54,6 +54,8 @@ ReactDOM.render(
 );
 ```
 
+**• Then use withSuspense:**
+
 ```js
 // App.js
 
@@ -69,7 +71,7 @@ const App = () => {
 export default withSuspense(App);
 ```
 
-Only with HOC:
+### Without Context configuration
 
 ```js
 // App.js
