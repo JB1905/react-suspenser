@@ -73,6 +73,8 @@ export default withSuspense(App);
 
 ### Without Context configuration
 
+**• Use withSuspense:**
+
 ```js
 // App.js
 
