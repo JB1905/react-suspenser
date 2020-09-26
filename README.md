@@ -27,15 +27,15 @@ $ yarn add react-suspenser
 
 ## Getting Started
 
-<!-- **• Import HOC in React application file:** -->
+**• Import context provider and HOC in React application file:**
 
 ```js
 import { SuspenseProvider, withSuspense } from 'react-suspenser';
 ```
 
-#### Returned Values
-
 #### Example
+
+With context provider and HOC:
 
 ```js
 // index.js
@@ -69,7 +69,7 @@ const App = () => {
 export default withSuspense(App);
 ```
 
-//-------------------------------------------
+Only with HOC:
 
 ```js
 // App.js
