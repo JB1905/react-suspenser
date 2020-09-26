@@ -27,13 +27,13 @@ $ yarn add react-suspenser
 
 ## Getting Started
 
+### With Context configuration
+
 **• Import context provider and HOC in React application file:**
 
 ```js
 import { SuspenseProvider, withSuspense } from 'react-suspenser';
 ```
-
-### With Context configuration
 
 **• Set SuspenseProvider (if you want to use the same fallback for all lazy components wrapped in withSuspense HOC):**
 
@@ -72,6 +72,12 @@ export default withSuspense(App);
 ```
 
 ### Without Context configuration
+
+**• Import HOC in React application file:**
+
+```js
+import { withSuspense } from 'react-suspenser';
+```
 
 **• Use withSuspense:**
 
