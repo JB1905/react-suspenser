@@ -71,6 +71,8 @@ const App = () => {
 export default withSuspense(App);
 ```
 
+---
+
 ### Without Context configuration
 
 **• Import HOC in React application file:**
