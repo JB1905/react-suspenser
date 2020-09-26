@@ -1,0 +1,3 @@
+describe('withSuspense', () => {
+  it('should', () => {});
+});

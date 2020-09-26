@@ -11,16 +11,6 @@
 
 Easier management of the lazy loading process
 
-### Demo
-
-**[Live – check website](#)**
-**[Playground – play with library in Storybook](#)**
-
-### Similar Projects / Alternatives / Idea
-
-- [example](#) by [John Doe](#)
-- [example-2](#) by [Jane Doe](#)
-
 ## How to Install
 
 First, install the library in your project by npm:
@@ -37,10 +27,10 @@ $ yarn add react-suspenser
 
 ## Getting Started
 
-<!-- **• Import hook in React application file:** -->
+<!-- **• Import HOC in React application file:** -->
 
 ```js
-import {} from 'react-suspenser';
+import { SuspenseProvider, withSuspense } from 'react-suspenser';
 ```
 
 #### Returned Values
@@ -48,7 +38,52 @@ import {} from 'react-suspenser';
 #### Example
 
 ```js
+// index.js
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { SuspenseProvider } from 'react-suspenser';
+
+import App from './App';
+
+ReactDOM.render(
+  <SuspenseProvider fallback={<p>Loading...</p>}>
+    <App />
+  </SuspenseProvider>,
+  document.getElementById('root')
+);
+```
+
+```js
+// App.js
+
+import React from 'react';
+import { withSuspense } from 'react-suspenser';
+
+const LazyComponent = lazy(() => import('./components/LazyComponent'));
+
+const App = () => {
+  return <LazyComponent />;
+};
+
+export default withSuspense(App);
+```
+
+//-------------------------------------------
+
+```js
+// App.js
+
+import React from 'react';
+import { withSuspense } from 'react-suspenser';
+
+const LazyComponent = lazy(() => import('./components/LazyComponent'));
+
+const App = () => {
+  return <LazyComponent />;
+};
+
+export default withSuspense(App, <p>Loading...</p>);
 ```
 
 ## License
