@@ -1,7 +1,11 @@
 import React from 'react';
 
-const LazyComponent = () => {
-  return <p>I am lazy component</p>;
+interface Props {
+  readonly text: string;
+}
+
+const LazyComponent = ({ text }: Props) => {
+  return <p>{text}</p>;
 };
 
 export default LazyComponent;

@@ -1,38 +1,43 @@
 import React, { lazy } from 'react';
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 
 import { SuspenseProvider, withSuspense } from '../src';
 
 describe('withSuspense', () => {
+  const text = 'I am lazy component';
+
+  const Fallback = () => <p>Loading...</p>;
+
   it('should test HOC with context', async () => {
     const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
     const Component = withSuspense()(() => {
-      return <LazyComponent />;
+      return <LazyComponent text={text} />;
     });
 
     const { getByText, findByText } = render(
-      <SuspenseProvider fallback={<p>Loading...</p>}>
+      <SuspenseProvider fallback={<Fallback />}>
         <Component />
       </SuspenseProvider>
     );
 
     expect(getByText('Loading...')).toBeInTheDocument();
 
-    expect(await findByText('I am lazy component')).toBeInTheDocument();
+    expect(await findByText(text)).toBeInTheDocument();
   });
 
   it('should test HOC without context', async () => {
     const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
-    const Component = withSuspense(<p>Loading...</p>)(() => {
-      return <LazyComponent />;
+    const Component = withSuspense(<Fallback />)(() => {
+      return <LazyComponent text={text} />;
     });
 
     const { getByText, findByText } = render(<Component />);
 
     expect(getByText('Loading...')).toBeInTheDocument();
 
-    expect(await findByText('I am lazy component')).toBeInTheDocument();
+    expect(await findByText(text)).toBeInTheDocument();
   });
 });
