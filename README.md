@@ -68,7 +68,7 @@ const App = () => {
   return <LazyComponent />;
 };
 
-export default withSuspense(App);
+export default withSuspense()(App);
 ```
 
 ---
@@ -95,7 +95,7 @@ const App = () => {
   return <LazyComponent />;
 };
 
-export default withSuspense(App, <p>Loading...</p>);
+export default withSuspense(<p>Loading...</p>)(App);
 ```
 
 ## License
