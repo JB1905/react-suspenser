@@ -4,6 +4,8 @@ import type { Fallback } from './types/Fallback';
 
 export const SuspenseContext = React.createContext<Fallback>({});
 
+SuspenseContext.displayName = 'SuspenseContext';
+
 interface Props {
   readonly children: React.ReactNode;
   readonly fallback: Fallback;
