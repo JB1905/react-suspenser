@@ -7,7 +7,7 @@ import { SuspenseProvider, withSuspense } from '../src';
 describe('withSuspense', () => {
   it('should test HOC with context', async () => {
     const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
-    
+
     const text = 'I am lazy component';
     const Fallback = () => <p>Loading...</p>;
 
@@ -27,7 +27,7 @@ describe('withSuspense', () => {
 
   it('should test HOC without context', async () => {
     const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
-    
+
     const text = 'I am another lazy component';
     const Fallback = () => <p>Loading another...</p>;
 
