@@ -11,4 +11,3 @@ tsconfig.json
 rollup.config.js
 yarn-error.log
 .rpt2_cache
-setupTests.ts
