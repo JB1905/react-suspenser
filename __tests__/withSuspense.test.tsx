@@ -11,11 +11,11 @@ describe('withSuspense', () => {
     const text = 'I am lazy component';
     const Fallback = () => <p>Loading...</p>;
 
-    const Component = withSuspense()(LazyComponent);
+    const WrappedComponent = withSuspense()(LazyComponent);
 
     const { getByText, findByText } = render(
       <SuspenseProvider fallback={<Fallback />}>
-        <Component text={text} />
+        <WrappedComponent text={text} />
       </SuspenseProvider>
     );
 
@@ -29,9 +29,9 @@ describe('withSuspense', () => {
     const text = 'I am another lazy component';
     const Fallback = () => <p>Loading another...</p>;
 
-    const Component = withSuspense(<Fallback />)(LazyComponent);
+    const WrappedComponent = withSuspense(<Fallback />)(LazyComponent);
 
-    const { getByText, findByText } = render(<Component text={text} />);
+    const { getByText, findByText } = render(<WrappedComponent text={text} />);
 
     expect(getByText('Loading another...')).toBeInTheDocument();
     expect(await findByText(text)).toBeInTheDocument();
