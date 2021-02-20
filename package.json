@@ -38,7 +38,7 @@
   "homepage": "https://github.com/JB1905/react-suspenser#readme",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^11.0.1",
-    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.2",
     "@testing-library/react-hooks": "^3.7.0",
     "@types/jest": "^26.0.19",
