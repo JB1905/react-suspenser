@@ -9,7 +9,6 @@ describe('withSuspense', () => {
     const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
     
     const text = 'I am lazy component';
-
     const Fallback = () => <p>Loading...</p>;
 
     const Component = withSuspense()(() => {
@@ -23,7 +22,6 @@ describe('withSuspense', () => {
     );
 
     expect(getByText('Loading...')).toBeInTheDocument();
-
     expect(await findByText(text)).toBeInTheDocument();
   });
 
@@ -31,7 +29,6 @@ describe('withSuspense', () => {
     const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
     
     const text = 'I am another lazy component';
-
     const Fallback = () => <p>Loading another...</p>;
 
     const Component = withSuspense(<Fallback />)(() => {
@@ -41,7 +38,6 @@ describe('withSuspense', () => {
     const { getByText, findByText } = render(<Component />);
 
     expect(getByText('Loading another...')).toBeInTheDocument();
-
     expect(await findByText(text)).toBeInTheDocument();
   });
 });
