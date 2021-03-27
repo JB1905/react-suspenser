@@ -11,6 +11,11 @@
 
 Easier management of the lazy loading process
 
+## Demo
+
+- [Basic](https://codesandbox.io/s/basic-demo-smd9i)
+- [With Context](https://codesandbox.io/s/provider-demo-9nvo0)
+
 ## How to Install
 
 First, install the library in your project by npm:
