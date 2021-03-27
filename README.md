@@ -32,6 +32,33 @@ $ yarn add react-suspenser
 
 ## Getting Started
 
+### Without Context configuration
+
+**• Import HOC in React application file:**
+
+```js
+import { withSuspense } from 'react-suspenser';
+```
+
+**• Use withSuspense:**
+
+```js
+// App.js
+
+import React from 'react';
+import { withSuspense } from 'react-suspenser';
+
+const LazyComponent = lazy(() => import('./components/LazyComponent'));
+
+const App = () => {
+  return <LazyComponent />;
+};
+
+export default withSuspense(<p>Loading...</p>)(App);
+```
+
+---
+
 ### With Context configuration
 
 **• Import context provider and HOC in React application file:**
@@ -74,33 +101,6 @@ const App = () => {
 };
 
 export default withSuspense()(App);
-```
-
----
-
-### Without Context configuration
-
-**• Import HOC in React application file:**
-
-```js
-import { withSuspense } from 'react-suspenser';
-```
-
-**• Use withSuspense:**
-
-```js
-// App.js
-
-import React from 'react';
-import { withSuspense } from 'react-suspenser';
-
-const LazyComponent = lazy(() => import('./components/LazyComponent'));
-
-const App = () => {
-  return <LazyComponent />;
-};
-
-export default withSuspense(<p>Loading...</p>)(App);
 ```
 
 ## License
