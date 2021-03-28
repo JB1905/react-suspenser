@@ -48,13 +48,15 @@ import { withSuspense } from 'react-suspenser';
 import React from 'react';
 import { withSuspense } from 'react-suspenser';
 
-const LazyComponent = lazy(() => import('./components/LazyComponent'));
+const LazyComponent = withSuspense(<p>Loading...</p>)(
+  lazy(() => import('./components/LazyComponent'))
+);
 
 const App = () => {
   return <LazyComponent />;
 };
 
-export default withSuspense(<p>Loading...</p>)(App);
+export default App;
 ```
 
 ---
@@ -94,13 +96,15 @@ ReactDOM.render(
 import React from 'react';
 import { withSuspense } from 'react-suspenser';
 
-const LazyComponent = lazy(() => import('./components/LazyComponent'));
+const LazyComponent = withSuspense()(
+  lazy(() => import('./components/LazyComponent'))
+);
 
 const App = () => {
   return <LazyComponent />;
 };
 
-export default withSuspense()(App);
+export default App;
 ```
 
 ## License
