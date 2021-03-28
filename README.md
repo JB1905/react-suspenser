@@ -14,7 +14,7 @@ Easier management of the lazy loading process
 ## Demo
 
 - [Basic](https://codesandbox.io/s/basic-demo-smd9i)
-- [With Context](https://codesandbox.io/s/provider-demo-9nvo0)
+- [With Context](https://codesandbox.io/s/provider-demo-9nvo0) (Soon)
 
 ## How to Install
 
