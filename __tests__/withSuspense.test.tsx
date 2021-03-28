@@ -27,13 +27,13 @@ describe('withSuspense', () => {
     const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
     const text = 'I am the next lazy component';
-    const Fallback = () => <p>Loading another...</p>;
+    const Fallback = () => <p>Loading next...</p>;
 
     const WrappedComponent = withSuspense(<Fallback />)(LazyComponent);
 
     const { getByText, findByText } = render(<WrappedComponent text={text} />);
 
-    expect(getByText('Loading another...')).toBeInTheDocument();
+    expect(getByText('Loading next...')).toBeInTheDocument();
     expect(await findByText(text)).toBeInTheDocument();
   });
 
