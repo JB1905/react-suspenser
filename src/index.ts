@@ -1,2 +1,2 @@
-export { SuspenseProvider } from './context';
+export * from './context';
 export { withSuspense } from './withSuspense';
