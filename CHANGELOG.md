@@ -1,6 +1,6 @@
 # react-suspenser Changelog
 
-## 1.1.0 (2021-03-28)
+## 1.1.0 / 1.1.1 (2021-03-28)
 
 #### New Feature
 
