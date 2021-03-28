@@ -7,20 +7,19 @@ import type { Fallback } from './types/Fallback';
 export const withSuspense = (fallback?: Fallback) => {
   return <T,>(WrappedComponent: React.ComponentType<T>) => (props: T) => (
     <SuspenseContext.Consumer>
-      {(globalFallback) => (
-        <>
-          {/* TODO */}
-          {/* Object.keys(obj).length === 0 */}
-          {console.log(globalFallback)}
+      {(globalFallback) => {
+        const isGlobalFallbackEmpty = JSON.stringify(globalFallback) === '{}';
+
+        return (
           <React.Suspense
             fallback={
-              fallback ?? `${globalFallback}` === '{}' ? null : globalFallback
+              fallback ?? (isGlobalFallbackEmpty ? null : globalFallback)
             }
           >
             <WrappedComponent {...props} />
           </React.Suspense>
-        </>
-      )}
+        );
+      }}
     </SuspenseContext.Consumer>
   );
 };
