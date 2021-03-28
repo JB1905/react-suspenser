@@ -36,4 +36,18 @@ describe('withSuspense', () => {
     expect(getByText('Loading another...')).toBeInTheDocument();
     expect(await findByText(text)).toBeInTheDocument();
   });
+
+  // TODO
+  it('should throw an error', async () => {
+    const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
+
+    const text = 'I am another lazy component';
+
+    const WrappedComponent = withSuspense()(LazyComponent);
+
+    const { getByText, findByText } = render(<WrappedComponent text={text} />);
+
+    expect(getByText('Loading another...')).toBeInTheDocument();
+    expect(await findByText(text)).toBeInTheDocument();
+  });
 });
