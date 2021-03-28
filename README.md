@@ -11,6 +11,11 @@
 
 Easier management of the lazy loading process
 
+## Demo
+
+- [Basic](https://codesandbox.io/s/basic-demo-smd9i)
+- [With Context](https://codesandbox.io/s/provider-demo-9nvo0) (Soon)
+
 ## How to Install
 
 First, install the library in your project by npm:
@@ -26,6 +31,35 @@ $ yarn add react-suspenser
 ```
 
 ## Getting Started
+
+### Without Context configuration
+
+**• Import HOC in React application file:**
+
+```js
+import { withSuspense } from 'react-suspenser';
+```
+
+**• Use withSuspense:**
+
+```js
+// App.js
+
+import React from 'react';
+import { withSuspense } from 'react-suspenser';
+
+const LazyComponent = withSuspense(<p>Loading...</p>)(
+  lazy(() => import('./components/LazyComponent'))
+);
+
+const App = () => {
+  return <LazyComponent />;
+};
+
+export default App;
+```
+
+---
 
 ### With Context configuration
 
@@ -63,35 +97,6 @@ import React from 'react';
 import { withSuspense } from 'react-suspenser';
 
 const LazyComponent = withSuspense()(
-  lazy(() => import('./components/LazyComponent'))
-);
-
-const App = () => {
-  return <LazyComponent />;
-};
-
-export default App;
-```
-
----
-
-### Without Context configuration
-
-**• Import HOC in React application file:**
-
-```js
-import { withSuspense } from 'react-suspenser';
-```
-
-**• Use withSuspense:**
-
-```js
-// App.js
-
-import React from 'react';
-import { withSuspense } from 'react-suspenser';
-
-const LazyComponent = withSuspense(<p>Loading...</p>)(
   lazy(() => import('./components/LazyComponent'))
 );
 
