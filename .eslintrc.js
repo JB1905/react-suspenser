@@ -19,7 +19,7 @@ module.exports = {
     },
   },
   rules: {
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
     'no-prototype-builtins': 'off',
     'react/display-name': 'off',
     'no-unused-vars': 'off',
