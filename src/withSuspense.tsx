@@ -8,13 +8,11 @@ export const withSuspense = (fallback?: Fallback) => {
   return <T,>(WrappedComponent: React.ComponentType<T>) => (props: T) => (
     <SuspenseContext.Consumer>
       {(globalFallback) => {
-        const isGlobalFallbackEmpty = React.isValidElement(globalFallback);
+        const hasGlobalFallback = React.isValidElement(globalFallback);
 
         return (
           <React.Suspense
-            fallback={
-              fallback ?? (isGlobalFallbackEmpty ? null : globalFallback)
-            }
+            fallback={fallback ?? (hasGlobalFallback ? globalFallback : null)}
           >
             <WrappedComponent {...props} />
           </React.Suspense>
