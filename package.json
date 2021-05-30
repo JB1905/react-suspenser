@@ -25,12 +25,12 @@
   },
   "keywords": [
     "react",
+    "modules",
+    "dynamic",
     "lazy",
     "loading",
-    "suspense",
-    "dynamic",
     "import",
-    "modules"
+    "suspense"
   ],
   "bugs": {
     "url": "https://github.com/JB1905/react-suspenser/issues"
