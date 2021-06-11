@@ -15,3 +15,5 @@ export const SuspenseProvider: React.FC<Props> = ({ children, fallback }) => (
     {children}
   </SuspenseContext.Provider>
 );
+
+SuspenseProvider.displayName = 'SuspenseProvider';
