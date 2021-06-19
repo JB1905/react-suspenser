@@ -1,6 +1,16 @@
 # react-suspenser Changelog
 
-## 1.0.5 (2021-05-01)
+## 1.1.6 (2021-06-19)
+
+#### New Feature
+
+- add display name to context provider
+
+#### Bug Fix
+
+- fix incorrect fallback condition
+
+## 1.1.5 (2021-05-01)
 
 #### Change
 

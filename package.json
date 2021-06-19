@@ -1,6 +1,6 @@
 {
   "name": "react-suspenser",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Easier management of the lazy loading process",
   "author": "Jakub Biesiada",
   "license": "MIT",
