@@ -3,5 +3,4 @@ node_modules
 yarn-error.log
 .rpt2_cache
 coverage
-.husky
 lib
