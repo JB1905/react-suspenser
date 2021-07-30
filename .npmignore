@@ -2,11 +2,9 @@ src
 __tests__
 __mocks__
 coverage
-
 tsconfig.json
 .travis.yml
 .prettierrc
-
 .eslintrc.js
 rollup.config.js
 yarn-error.log

@@ -7,13 +7,12 @@ export const SuspenseContext = React.createContext<Fallback>({});
 SuspenseContext.displayName = 'SuspenseContext';
 
 interface Props {
+  readonly children: React.ReactNode;
   readonly fallback: Fallback;
 }
 
-export const SuspenseProvider: React.FC<Props> = ({ children, fallback }) => (
+export const SuspenseProvider = ({ children, fallback }: Props) => (
   <SuspenseContext.Provider value={fallback}>
     {children}
   </SuspenseContext.Provider>
 );
-
-SuspenseProvider.displayName = 'SuspenseProvider';
