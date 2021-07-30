@@ -2,7 +2,9 @@ import React from 'react';
 
 import type { Fallback } from './types/Fallback';
 
-export const SuspenseContext = React.createContext<Fallback>({});
+export const SuspenseContext = React.createContext<Fallback | undefined>(
+  undefined
+);
 
 SuspenseContext.displayName = 'SuspenseContext';
 
