@@ -10,6 +10,7 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
+      // exports: 'named', // TODO?
       sourcemap: true,
     },
     {
@@ -19,5 +20,7 @@ export default {
     },
   ],
   plugins: [resolve(), typescript(), terser()],
-  external: Object.keys(pkg.peerDependencies || {}),
+  // TODO
+  // TODO || => ??
+  external: Object.keys(pkg.peerDependencies || {}), // TODO?
 };
