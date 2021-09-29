@@ -2,7 +2,6 @@ import React from 'react';
 
 import type { Fallback } from './types/Fallback';
 
-// TODO check can be undefined
 export const SuspenseContext = React.createContext<Fallback>({});
 
 SuspenseContext.displayName = 'SuspenseContext';
