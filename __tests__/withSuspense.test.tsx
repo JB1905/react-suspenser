@@ -5,147 +5,116 @@ import '@testing-library/jest-dom/extend-expect';
 import { SuspenseProvider, withSuspense } from '../src';
 
 describe('withSuspense', () => {
-  // describe('without context')
-  // describe('with context')
+  describe('without context', () => {
+    it('should render HOC with fallback value', async () => {
+      const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
-  // it('should render HOC with context', async () => {
-  //   const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
+      const contentText = 'I am the lazy component';
+      const fallbackText = 'Loading...';
+      const Fallback = () => <p>{fallbackText}</p>;
 
-  //   const text = 'I am lazy component';
-  //   const Fallback = () => <p>Loading...</p>;
+      const WrappedComponent = withSuspense(<Fallback />)(LazyComponent);
 
-  //   const WrappedComponent = withSuspense()(LazyComponent);
+      const { getByText, findByText } = render(
+        <WrappedComponent text={contentText} />
+      );
 
-  //   const { getByText, findByText } = render(
-  //     <SuspenseProvider fallback={<Fallback />}>
-  //       <WrappedComponent text={text} />
-  //     </SuspenseProvider>
-  //   );
+      expect(getByText(fallbackText)).toBeInTheDocument();
+      expect(await findByText(contentText)).toBeInTheDocument();
+    });
 
-  //   expect(getByText('Loading...')).toBeInTheDocument();
-  //   expect(await findByText(text)).toBeInTheDocument();
-  // });
+    it('should render HOC without fallback value', async () => {
+      const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
-  it('should render HOC without context', async () => {
-    const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
+      const contentText = 'I am the lazy component';
 
-    const text = 'I am the next lazy component';
-    const Fallback = () => <p>Loading next...</p>;
+      const WrappedComponent = withSuspense()(LazyComponent);
 
-    const WrappedComponent = withSuspense(<Fallback />)(LazyComponent);
+      const { container, findByText } = render(
+        <WrappedComponent text={contentText} />
+      );
 
-    const { getByText, findByText } = render(<WrappedComponent text={text} />);
-
-    expect(getByText('Loading next...')).toBeInTheDocument();
-    expect(await findByText(text)).toBeInTheDocument();
+      expect(container.innerHTML).toBe('');
+      expect(await findByText(contentText)).toBeInTheDocument();
+    });
   });
 
-  it('should render HOC without context and fallback value', async () => {
-    const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
+  describe('with context', () => {
+    it('should render HOC without fallback value', async () => {
+      const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
-    const text = 'I am another lazy component';
+      const contentText = 'I am the lazy component';
 
-    const WrappedComponent = withSuspense()(LazyComponent);
+      const WrappedComponent = withSuspense()(LazyComponent);
 
-    const { container, findByText } = render(<WrappedComponent text={text} />);
+      const { container, findByText } = render(
+        <SuspenseProvider fallback={null}>
+          <WrappedComponent text={contentText} />
+        </SuspenseProvider>
+      );
 
-    expect(container.innerHTML).toBe(''); // TODO
-    expect(await findByText(text)).toBeInTheDocument();
-  });
+      expect(container.innerHTML).toBe('');
+      expect(await findByText(contentText)).toBeInTheDocument();
+    });
 
-  // it('should render HOC without context and fallback value', async () => {
-  //   const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
+    it('should render HOC with fallback value from context', async () => {
+      const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
-  //   const text = 'I am the last lazy component';
-  //   const Fallback = () => <p>Loading the last...</p>;
+      const contentText = 'I am the lazy component';
+      const contextFallbackText = 'Loading...';
+      const ContextFallback = () => <p>{contextFallbackText}</p>;
 
-  //   const WrappedComponent = withSuspense(<p>hello</p>)(LazyComponent);
+      const WrappedComponent = withSuspense()(LazyComponent);
 
-  //   const { getByText, findByText } = render(
-  //     <SuspenseProvider fallback={<Fallback />}>
-  //       <WrappedComponent text={text} />
-  //     </SuspenseProvider>
-  //   );
+      const { getByText, findByText } = render(
+        <SuspenseProvider fallback={<ContextFallback />}>
+          <WrappedComponent text={contentText} />
+        </SuspenseProvider>
+      );
 
-  //   expect(getByText('hello')).toBeInTheDocument();
-  //   expect(await findByText(text)).toBeInTheDocument();
-  // });
+      expect(getByText(contextFallbackText)).toBeInTheDocument();
+      expect(await findByText(contentText)).toBeInTheDocument();
+    });
 
-  // ----------------------------------------
+    it('should render HOC with fallback value from HOC', async () => {
+      const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
-  it('global fallback undefined, fallback undefined', async () => {
-    const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
+      const contentText = 'I am the lazy component';
+      const fallbackText = 'hello';
+      const Fallback = () => <p>{fallbackText}</p>;
 
-    const text = 'I am the last lazy component';
+      const WrappedComponent = withSuspense(<Fallback />)(LazyComponent);
 
-    const WrappedComponent = withSuspense()(LazyComponent);
+      const { getByText, findByText } = render(
+        <SuspenseProvider fallback={null}>
+          <WrappedComponent text={contentText} />
+        </SuspenseProvider>
+      );
 
-    const { debug, getByText, findByText } = render(
-      <SuspenseProvider fallback={null}>
-        {/* <SuspenseProvider fallback={undefined}> */}
-        <WrappedComponent text={text} />
-      </SuspenseProvider>
-    );
+      expect(getByText(fallbackText)).toBeInTheDocument();
+      expect(await findByText(contentText)).toBeInTheDocument();
+    });
 
-    debug();
-    // expect(getByText('hello')).toBeInTheDocument();
-    expect(await findByText(text)).toBeInTheDocument();
-  });
+    it('global fallback component, fallback component', async () => {
+      const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
 
-  it('global fallback component, fallback undefined', async () => {
-    const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
+      const text = 'I am the last lazy component';
+      const fallbackText = 'hello';
+      const Fallback = () => <p>{fallbackText}</p>;
+      const contextFallbackText = 'Loading next...';
+      const ContextFallback = () => <p>{contextFallbackText}</p>;
 
-    const text = 'I am the last lazy component';
-    const Fallback = () => <p>Loading next...</p>;
+      const WrappedComponent = withSuspense(<Fallback />)(LazyComponent);
 
-    const WrappedComponent = withSuspense()(LazyComponent);
+      const { getByText, queryByText, findByText } = render(
+        <SuspenseProvider fallback={<ContextFallback />}>
+          <WrappedComponent text={text} />
+        </SuspenseProvider>
+      );
 
-    const { debug, getByText, findByText } = render(
-      <SuspenseProvider fallback={<Fallback />}>
-        <WrappedComponent text={text} />
-      </SuspenseProvider>
-    );
-
-    debug();
-    // expect(getByText('hello')).toBeInTheDocument();
-    expect(await findByText(text)).toBeInTheDocument();
-  });
-
-  it('global fallback undefined, fallback component', async () => {
-    const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
-
-    const text = 'I am the last lazy component';
-
-    const WrappedComponent = withSuspense(<p>hello</p>)(LazyComponent);
-
-    const { debug, getByText, findByText } = render(
-      <SuspenseProvider fallback={null}>
-        {/* <SuspenseProvider fallback={undefined}> */}
-        <WrappedComponent text={text} />
-      </SuspenseProvider>
-    );
-
-    debug();
-    // expect(getByText('hello')).toBeInTheDocument();
-    expect(await findByText(text)).toBeInTheDocument();
-  });
-
-  it('global fallback component, fallback component', async () => {
-    const LazyComponent = lazy(() => import('../__mocks__/LazyComponent'));
-
-    const text = 'I am the last lazy component';
-    const Fallback = () => <p>Loading next...</p>;
-
-    const WrappedComponent = withSuspense(<p>hello</p>)(LazyComponent);
-
-    const { debug, getByText, findByText } = render(
-      <SuspenseProvider fallback={<Fallback />}>
-        <WrappedComponent text={text} />
-      </SuspenseProvider>
-    );
-
-    debug();
-    // expect(getByText('hello')).toBeInTheDocument();
-    expect(await findByText(text)).toBeInTheDocument();
+      expect(getByText(fallbackText)).toBeInTheDocument();
+      expect(queryByText(contextFallbackText)).not.toBeInTheDocument();
+      expect(await findByText(text)).toBeInTheDocument();
+    });
   });
 });
