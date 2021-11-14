@@ -11,6 +11,7 @@
     "prepack": "npm run clean && npm run prettier && npm run lint && npm run build",
     "clean": "rimraf lib/*",
     "build": "rollup -c",
+    "prebuild": "npm run clean",
     "test": "jest --coverage",
     "watch": "npm run build -- --watch",
     "watch:test": "npm run test -- --watch",
