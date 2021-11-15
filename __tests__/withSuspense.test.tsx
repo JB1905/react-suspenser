@@ -1,3 +1,4 @@
+
 import React, { lazy } from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
@@ -103,7 +104,6 @@ describe('withSuspense', () => {
       const Fallback = () => <p>{fallbackText}</p>;
       const contextFallbackText = 'Loading next...';
       const ContextFallback = () => <p>{contextFallbackText}</p>;
-
       const WrappedComponent = withSuspense(<Fallback />)(LazyComponent);
 
       const { getByText, queryByText, findByText } = render(

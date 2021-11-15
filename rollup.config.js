@@ -10,6 +10,7 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
+      // exports: 'named', // TODO?
       sourcemap: true,
     },
     {
