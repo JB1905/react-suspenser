@@ -2,7 +2,7 @@
 
 ## 1.1.6 (2021-06-19)
 
-#### New Feature
+### New Feature
 
 - add display name to context provider
 
@@ -12,17 +12,17 @@
 
 ## 1.1.5 (2021-05-01)
 
-#### Change
+### Change
 
 - export `Fallback` type
 
 ## 1.1.0 / 1.1.1 / 1.1.2 / 1.1.3 / 1.1.4 (2021-03-28)
 
-#### New Feature
+### New Feature
 
 - add `displayName` to context
 
-#### Bug Fix
+### Bug Fix
 
 - fix error when fallback is not set
 
@@ -33,7 +33,7 @@
 
 ## 1.0.0 (2020-12-06)
 
-#### New Feature
+### New Feature
 
 - `SuspenseContext` & `SuspenseProvider`
 - `withSuspense` HOC

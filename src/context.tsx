@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { Fallback } from './types/Fallback';
+import type { Fallback } from './types';
 
 export const SuspenseContext = React.createContext<Fallback>({});
 

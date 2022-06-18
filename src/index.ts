@@ -1,3 +1,3 @@
 export * from './context';
 export { withSuspense } from './withSuspense';
-export type { Fallback } from './types/Fallback';
+export type { Fallback } from './types';

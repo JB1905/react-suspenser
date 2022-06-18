@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SuspenseContext } from './context';
 
-import type { Fallback } from './types/Fallback';
+import type { Fallback } from './types';
 
 export const withSuspense = (fallback?: Fallback) => {
   return <T,>(WrappedComponent: React.ComponentType<T>) =>

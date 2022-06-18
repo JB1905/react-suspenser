@@ -55,8 +55,6 @@ export default App;
 
 ---
 
-<!-- TODO? params -->
-
 ### With Context configuration
 
 **• Set SuspenseProvider (if you want to use the same fallback for all lazy components wrapped in withSuspense HOC):**

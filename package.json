@@ -8,13 +8,13 @@
   "module": "lib/react-suspenser.esm.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prepack": "npm run clean && npm run prettier && npm run lint && npm run build",
+    "prepack": "yarn prettier && yarn lint && yarn build",
     "clean": "rimraf lib/*",
     "build": "rollup -c",
-    "prebuild": "npm run clean",
+    "prebuild": "yarn clean",
     "test": "jest --coverage",
-    "watch": "npm run build -- --watch",
-    "watch:test": "npm run test -- --watch",
+    "watch": "yarn build -- --watch",
+    "watch:test": "yarn test -- --watch",
     "lint": "eslint 'src/**/*.{tsx,ts}' --fix",
     "prettier": "prettier --write 'src/**/*.{tsx,ts}'",
     "commit": "git-cz",
@@ -45,7 +45,7 @@
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.3",
     "@types/react": "^17.0.38",
-    "@typescript-eslint/parser": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.1",
     "cz-conventional-changelog": "3.3.0",
     "cz-emoji": "^1.3.1",
     "eslint": "^8.5.0",
@@ -82,8 +82,8 @@
   },
   "lint-staged": {
     "src/**/*.{tsx,ts}": [
-      "npm run prettier",
-      "npm run lint"
+      "yarn prettier",
+      "yarn lint"
     ]
   }
 }
